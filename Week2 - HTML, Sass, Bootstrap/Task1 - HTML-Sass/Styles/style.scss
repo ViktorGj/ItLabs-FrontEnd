@@ -1,0 +1,232 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER STYLES */
+
+.headerContainer {
+    width: 100%;
+    display: block;
+
+    .headerRed {
+        height: 100px;
+        width: 100%;
+        background-color: brown;
+    }
+// Navbar - Large resolution
+    .topnav {
+        display: block;
+        background-color: rgb(199, 194, 194);
+        font-size: 1em;
+        padding: 5px;
+        box-sizing: border-box;
+        height: 30%;
+        width: 100%;
+    
+        .topnav-item {
+            display: inline-block;
+            width: 15%;
+            height: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            
+                a {
+                    text-decoration: none;
+                    font-size: 1.2em;
+                    color: brown;
+                }
+        }
+        .topnav-item:hover {
+            background-color: red;
+            a {
+                color: white;
+            }
+        }
+    }
+
+        .MenuButton {
+            position: relative;
+            top: -60px;
+            display: none;
+            height: 60px;
+            width: 18%;
+            margin-left: 82%;
+            background-image: url("../Images/menuIcon4.png");
+            background-color: white;
+            background-size: 100% 100%;
+        }
+
+// Navbar - Mobile devices
+        .navWrapper {
+            // height: auto;
+            .topnav-Hidden {
+                position: relative;
+                top: -60px;
+                display: none;
+                height: 100px;
+                width: 100%;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                background-color: #f1f1f1;
+                padding: 5px;
+                box-sizing: border-box;
+        
+                    .topnav-item {
+                        display: block;
+                        margin: auto;
+                        height: 33%;
+                        text-align: center;
+                        box-sizing: border-box;
+                        
+                            a {
+                                text-decoration: none;
+                                text-align: center;
+                                letter-spacing: 2px;
+                                font-weight: 600;
+                            }
+                    }
+                    .topnav-item:hover {
+                        background-color: red;
+                        a {
+                            color: white;
+                        }
+                    }
+                }
+        }
+   
+}
+/* END OF HEADER AND NAV */
+
+/* Main content */
+.middleSection {
+    display: block;
+    box-sizing: border-box;
+    height: 600px;
+
+    .middleSection-mainContent {
+        background-color: green;
+        height: 100%;
+        width: 80%;
+        display: inline-block;
+        box-sizing: border-box;
+
+        .mainContent-upper {
+            width: 80%;
+            height: 30%;
+            background-color: yellow;
+            box-sizing: border-box;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .mainImages {
+            width: 80%;
+            height: 150px;
+            box-sizing: border-box;
+            margin: auto;
+            display: table;
+        
+            .img-container {
+                width: 25%;
+                height: 100%;
+                box-sizing: border-box;
+                display: table-cell;
+                padding: 2%;
+            
+                .img {
+                    background-color: orangered;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            
+        }
+    }
+
+    /* Aside content */
+    .asideContent {
+        width: 20%;
+        height: 100%;
+        background-color: cyan;
+        box-sizing: border-box;
+        display: inline-block;
+        float: right;
+    }
+    
+}
+/* END OF MAIN CONTENT */
+
+
+/* BOTTOM CONTENT */
+.bottomContent {
+    background-color: greenyellow;
+    height: 30px;
+}
+
+/* RESPONSIVE - Media Queries */
+
+@media screen and (max-width:1000px){
+
+
+    .middleSection {
+        .asideContent {
+            display: none;
+        }
+    
+        .middleSection-mainContent {
+            width: 100%;
+    
+            .mainImages {
+                display: block;
+        
+                .img-container {
+                    display: inline-block;
+                    width: 49%;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:399px){
+    .headerContainer {
+        .topnav {
+            display: none;
+        }
+        .navWrapper {
+            display: block;
+            width: 100%;
+            
+            &:hover {
+                .topnav-Hidden {
+                    display: block;
+
+                }
+            }   
+            .MenuButton {
+                display: block;
+            }  
+        }
+                  
+        }
+
+    .middleSection {
+        height: 1000px;
+        position: relative;
+        top: -60px;
+    }
+
+    .middleSection .middleSection-mainContent .mainImages .img-container {
+        display: block;
+        width: 100%;
+    }
+
+    .bottomContent {
+        position: relative;
+        top: -60px;
+    }
+}

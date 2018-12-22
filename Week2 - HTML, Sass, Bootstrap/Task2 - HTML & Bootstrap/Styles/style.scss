@@ -1,0 +1,92 @@
+
+#about, #services, #portfolios {
+    padding-top: 60px;
+}
+
+
+// main container
+.main {
+   padding-top: 60px;
+   p {
+       padding: 0 30px;
+   }
+}
+
+// services columns
+.col-md-4 img {
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.footer {
+    border-top: 3px solid darkblue;
+// foter icons
+    .social-icon {
+        .social {
+            margin-right: 12%;
+                i {
+                    font-size: 40px;
+                        .fa {
+                            padding: 20px;
+                            font-size: 45px;
+                            width: 50px;
+                            text-align: center;
+                            text-decoration: none;
+                        }
+                        
+                        &:hover {
+                            opacity: 0.5;
+                        }
+            }
+        }
+    }
+}
+
+
+// Media queries
+@media only screen and (max-width: 850px){
+    // nav search/button resize
+    .form-inline {
+        .form-control {
+            width: 60%;
+        }
+        .btn {
+            width: 30%;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 770px){
+    .navbar-nav {
+        height: 50px;
+        .nav-item {
+            margin: auto 20px;
+            &:hover {
+                border-top: 3px solid aqua;
+                border-bottom: 3px solid aqua;
+            }
+            .nav-link {
+                font-size:20px;
+            }
+        
+        }
+    }
+}
+
+
+@media only screen and (max-width: 400px){
+    .navbar {
+        position: static;
+    }
+
+    .main {
+        padding-top: 0;
+        p {
+            height: 100px;
+            overflow: hidden;
+            width: 100%;
+        }
+    }
+
+}

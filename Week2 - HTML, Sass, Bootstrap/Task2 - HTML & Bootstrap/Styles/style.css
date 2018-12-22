@@ -1,0 +1,75 @@
+#about, #services, #portfolios {
+  padding-top: 60px;
+}
+
+.main {
+  padding-top: 60px;
+}
+.main p {
+  padding: 0 30px;
+}
+
+.col-md-4 img {
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.footer {
+  border-top: 3px solid darkblue;
+}
+.footer .social-icon .social {
+  margin-right: 12%;
+}
+.footer .social-icon .social i {
+  font-size: 40px;
+}
+.footer .social-icon .social i .fa {
+  padding: 20px;
+  font-size: 45px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+.footer .social-icon .social i:hover {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 850px) {
+  .form-inline .form-control {
+    width: 60%;
+  }
+  .form-inline .btn {
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 770px) {
+  .navbar-nav {
+    height: 50px;
+  }
+  .navbar-nav .nav-item {
+    margin: auto 20px;
+  }
+  .navbar-nav .nav-item:hover {
+    border-top: 3px solid aqua;
+    border-bottom: 3px solid aqua;
+  }
+  .navbar-nav .nav-item .nav-link {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .navbar {
+    position: static;
+  }
+
+  .main {
+    padding-top: 0;
+  }
+  .main p {
+    height: 100px;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

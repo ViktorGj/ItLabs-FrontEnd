@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER STYLES */
+.headerContainer {
+  width: 100%;
+  display: block;
+}
+.headerContainer .headerRed {
+  height: 100px;
+  width: 100%;
+  background-color: brown;
+}
+.headerContainer .topnav {
+  display: block;
+  background-color: #c7c2c2;
+  font-size: 1em;
+  padding: 5px;
+  box-sizing: border-box;
+  height: 30%;
+  width: 100%;
+}
+.headerContainer .topnav .topnav-item {
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.headerContainer .topnav .topnav-item a {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: brown;
+}
+.headerContainer .topnav .topnav-item:hover {
+  background-color: red;
+}
+.headerContainer .topnav .topnav-item:hover a {
+  color: white;
+}
+.headerContainer .MenuButton {
+  position: relative;
+  top: -60px;
+  display: none;
+  height: 60px;
+  width: 18%;
+  margin-left: 82%;
+  background-image: url("../Images/menuIcon4.png");
+  background-color: white;
+  background-size: 100% 100%;
+}
+.headerContainer .navWrapper .topnav-Hidden {
+  position: relative;
+  top: -60px;
+  display: none;
+  height: 100px;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  background-color: #f1f1f1;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.headerContainer .navWrapper .topnav-Hidden .topnav-item {
+  display: block;
+  margin: auto;
+  height: 33%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.headerContainer .navWrapper .topnav-Hidden .topnav-item a {
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.headerContainer .navWrapper .topnav-Hidden .topnav-item:hover {
+  background-color: red;
+}
+.headerContainer .navWrapper .topnav-Hidden .topnav-item:hover a {
+  color: white;
+}
+
+/* END OF HEADER AND NAV */
+/* Main content */
+.middleSection {
+  display: block;
+  box-sizing: border-box;
+  height: 600px;
+  /* Aside content */
+}
+.middleSection .middleSection-mainContent {
+  background-color: green;
+  height: 100%;
+  width: 80%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.middleSection .middleSection-mainContent .mainContent-upper {
+  width: 80%;
+  height: 30%;
+  background-color: yellow;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.middleSection .middleSection-mainContent .mainImages {
+  width: 80%;
+  height: 150px;
+  box-sizing: border-box;
+  margin: auto;
+  display: table;
+}
+.middleSection .middleSection-mainContent .mainImages .img-container {
+  width: 25%;
+  height: 100%;
+  box-sizing: border-box;
+  display: table-cell;
+  padding: 2%;
+}
+.middleSection .middleSection-mainContent .mainImages .img-container .img {
+  background-color: orangered;
+  width: 100%;
+  height: 100%;
+}
+.middleSection .asideContent {
+  width: 20%;
+  height: 100%;
+  background-color: cyan;
+  box-sizing: border-box;
+  display: inline-block;
+  float: right;
+}
+
+/* END OF MAIN CONTENT */
+/* BOTTOM CONTENT */
+.bottomContent {
+  background-color: greenyellow;
+  height: 30px;
+}
+
+/* RESPONSIVE - Media Queries */
+@media screen and (max-width: 1000px) {
+  .middleSection .asideContent {
+    display: none;
+  }
+  .middleSection .middleSection-mainContent {
+    width: 100%;
+  }
+  .middleSection .middleSection-mainContent .mainImages {
+    display: block;
+  }
+  .middleSection .middleSection-mainContent .mainImages .img-container {
+    display: inline-block;
+    width: 49%;
+  }
+}
+@media screen and (max-width: 399px) {
+  .headerContainer .topnav {
+    display: none;
+  }
+  .headerContainer .navWrapper {
+    display: block;
+    width: 100%;
+  }
+  .headerContainer .navWrapper:hover .topnav-Hidden {
+    display: block;
+  }
+  .headerContainer .navWrapper .MenuButton {
+    display: block;
+  }
+
+  .middleSection {
+    height: 1000px;
+    position: relative;
+    top: -60px;
+  }
+
+  .middleSection .middleSection-mainContent .mainImages .img-container {
+    display: block;
+    width: 100%;
+  }
+
+  .bottomContent {
+    position: relative;
+    top: -60px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
