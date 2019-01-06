@@ -1,0 +1,116 @@
+
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #ffd487;
+}
+
+#start {
+        height: 50px;
+        width: 100px;
+        background: orange;
+        box-shadow: 0 0 1px #ccc;
+        -webkit-transition: all 0.5s ease-in-out;
+        border: 0px;
+        color: #fff;
+}
+#start:hover {
+    -webkit-transform: scale(1.1);
+    background: #ec0606;
+}
+
+.fas {
+    font-size: 40px;
+}
+
+/* Modal/alert for winner */
+.modalWinner {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .modalContentWinner {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+  }
+  /* Modal Animation */
+ @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  /* Modal Close Button */
+  .close {
+    color: rgb(57, 96, 99);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  /* End of modal */
+
+.imgContainer {
+    height: 400px;
+    width: 90%;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.imgContainer  .imgBackground {
+    height: 25%;
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: 4px dashed white;
+    width: 100%;
+    background-image: url("../Images/backgroundImg3.jpg");
+    z-index: 1;
+}
+
+.imgHeading {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    z-index: 2;
+    color: white;
+}
+
+.imgContainer .img {
+    width: 150px;
+    position: absolute;
+    height: 100%;
+    z-index: 20;
+}
+
+.finishLine {
+    width: auto;
+    display: inline-block;
+    position: absolute;
+    right: 23%;
+    z-index: 10;
+}
+
+#results {
+    margin-left: 50px;
+}

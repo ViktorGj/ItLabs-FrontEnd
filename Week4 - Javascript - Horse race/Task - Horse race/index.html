@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Images/horse1.jpg" type="image/x-icon"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="Styles/style.css" type="text/css"/>
+    <title>Week4 - JavaScript - Horse race</title>
+</head>
+<body>
+    <header class="container-fluid">
+        <h1 class="text-center">Welcome to Horse racing game</h1>
+        <h4 class="mb-4">Press button 'start' to see who'll win !</h3>
+        <button id="start"><i class="fas fa-flag-checkered"></i></button>
+    </header>
+    
+    <div class="container-fluid mt-4 mb-4">
+        <div class="modalWinner">
+            <div class="modalContentWinner">
+                <span class="close">&times;</span>
+                <h2>The winner is: </h2>
+                <h3 id="winner"></h3>
+            </div>
+        </div>
+
+        <div class="imgContainer">
+            <div class="imgBackground">
+                <h3 class="imgHeading">Lane 1</h3>
+                <img src="Images/horse_1.gif" id="horse1" class="img">
+            </div>
+            <div class="imgBackground">
+                <h3 class="imgHeading">Lane 2</h3>
+                <img src="Images/horse_2.gif" id="horse2" class="img">
+            </div>
+            <div class="imgBackground">
+                <h3 class="imgHeading">Lane 3</h3>
+                <img src="Images/horse_3.gif" id="horse3" class="img">
+            </div>
+            <div class="imgBackground">
+                <h3 class="imgHeading">Lane 4</h3>
+                <img src="Images/horse_5.gif" id="horse4" class="img">
+            </div>
+        </div>
+
+        <div class="finishLine">
+            <img src="Images/finishLine.jpg">
+        </div>
+    </div>
+        
+    <table class="table w-25 table-striped" id="results">
+        <thead>
+            <tr>
+                <th>Results</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1st</td>
+                <td class="result"></td>
+            </tr>
+            <tr>
+                <td>2nd</td>
+                <td class="result"></td>
+            </tr>
+            <tr>
+                <td>3rd</td>
+                <td class="result"></td>
+            </tr>
+            <tr>
+                <td>4th</td>
+                <td class="result"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script src="script.js"></script>  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>  
+</body>
+</html>
