@@ -1,0 +1,29 @@
+
+table {
+    margin: auto;
+    .thead {
+        background-color: rgb(10, 110, 10);
+        color: #FDE74C;
+    }
+}
+
+
+@media only screen and (max-width: 620px) {
+    .row {
+        .form-group {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+
+            .form-control {
+                width: 60%;
+                display: inline;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    table {
+        padding: 0 10px;
+    }
+}
