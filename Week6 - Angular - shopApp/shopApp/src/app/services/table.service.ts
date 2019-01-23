@@ -14,21 +14,24 @@ export class TableService {
 
 
 
-  addProduct(product: Icategory) {
-    return this.http.post(this.apiUrl, product);
+  addCategory(category: Icategory) {
+    return this.http.post(this.apiUrl, category);
   }
 
-  getProducts() : Observable <any> {
+  getCategories() : Observable <any> {
     return this.http.get(this.apiUrl);
   }
 
-  deleteProduct(id) {
+  deleteCategory(id) {
     return this.http.delete(this.apiUrl + `/${id}`);
   }
 
-  searchProduct(searchTerm) {
+  searchCategory(searchTerm) {
     return this.http.get(this.searchUrl + searchTerm);
   }
 
+  updateCategory(id, category){
+    return this.http.put(this.apiUrl + `/${id}`, category);
+  }
 
 }

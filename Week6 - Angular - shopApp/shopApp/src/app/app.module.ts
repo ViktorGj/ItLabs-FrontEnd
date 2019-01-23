@@ -4,16 +4,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { TableComponent } from './table/table.component';
 import { TableService } from './services/table.service';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './components/products/products.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { CategoriesTableComponent } from './components/categories-table/categories-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent,
-    ProductsComponent
+    CategoriesTableComponent,
+    ProductsComponent,
+    AddCategoryComponent,
+    CategoriesTableComponent
   ],
   imports: [
     BrowserModule,
