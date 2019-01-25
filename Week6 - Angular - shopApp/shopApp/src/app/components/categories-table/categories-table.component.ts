@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TableService } from '../../services/table.service';
 import { Icategory } from '../../models/category';
-import { Router } from '@angular/router';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-categories-table',
@@ -10,9 +10,13 @@ import { Router } from '@angular/router';
 })
 export class CategoriesTableComponent implements OnInit {
 
-  constructor(private tableService: TableService, private _router: Router) { }
+  constructor(private tableService: TableService,
+              private modalService: BsModalService
+              ) { }
   tableContent: Icategory [];
   searchTerm: string;
+  modalRef: BsModalRef;
+  categoryId: number;
   
   getData = () => {
     this.tableService.getCategories().subscribe(data => {
@@ -41,8 +45,19 @@ export class CategoriesTableComponent implements OnInit {
       })
   }
 
-  editCategory(id) {
-    this._router.navigate([`/addNew/${id}`]);
+  deleteModal(template: TemplateRef<any>, id) {
+    this.categoryId = id;
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
+ 
+  confirm(id): void {
+    id = this.categoryId;
+    this.deleteData(id);
+    this.modalRef.hide();
+  }
+ 
+  decline(): void {
+    this.modalRef.hide();
   }
 
   ngOnInit() {

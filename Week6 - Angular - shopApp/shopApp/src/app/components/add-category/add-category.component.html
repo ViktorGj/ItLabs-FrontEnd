@@ -1,5 +1,5 @@
 <div class="container-fluid mt-3">
-  <h1>Add Category</h1>
+  <h1>{{headingState}}</h1>
   <form>
     <div class="form-group">
       <label for="name" class="col-sm-2 col-form-label">Name:</label>
@@ -12,20 +12,17 @@
       <label for="sel1" class="col-sm-2 col-form-label">Parent category:</label>
       <select [(ngModel)]="parentCategoryName" class="form-control col-sm-6" id="sel1" name="parentCategory">
         <option selected="true" disabled="disabled">Options</option>
-        <option [value]="1">1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <option *ngFor = "let name of categoryNames" [value]="name">{{name}}</option>
       </select>
     </div>
-
+  
     <div class="form-group">
       <label for="description" class="col-sm-2 col-form-label">Description:</label>
       <textarea [(ngModel)]="categoryDescription" name="description" rows="10" id="description" class="col-sm-12"></textarea>
     </div>
-
+    <!-- Edit / Update button -->
     <div class="formButtons">
-      <button (click)="addData()" type="submit" class="btn btn-outline-success">Save</button>
+      <button (click)="addUpdate()" type="submit" class="btn btn-outline-success">{{buttonState}}</button>
       <button routerLink="/categories" class="btn btn-outline-warning">Cancel</button>
     </div>
   </form>

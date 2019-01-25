@@ -1,3 +1,20 @@
+// Search and add button
+.row {
+    display: block;
+    height: 40px;
+    div {
+        .search {
+
+            display: inline;
+        }
+
+        .button {
+            display: inline;
+        }
+    }
+
+}
+
 
 table {
     margin: auto;

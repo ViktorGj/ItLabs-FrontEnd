@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductsComponent } from './components/products/products.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { CategoriesTableComponent } from './components/categories-table/categories-table.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { CategoriesTableComponent } from './components/categories-table/categori
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   providers: [TableService],
   bootstrap: [AppComponent]

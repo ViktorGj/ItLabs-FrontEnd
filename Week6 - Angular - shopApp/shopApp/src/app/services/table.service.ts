@@ -17,9 +17,13 @@ export class TableService {
   addCategory(category: Icategory) {
     return this.http.post(this.apiUrl, category);
   }
-
+  //Get all categories
   getCategories() : Observable <any> {
     return this.http.get(this.apiUrl);
+  }
+  // Get particular category to edit additionally
+  getCategory(id){
+    return this.http.get(this.apiUrl + `/${id}`);
   }
 
   deleteCategory(id) {

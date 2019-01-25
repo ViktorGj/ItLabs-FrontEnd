@@ -7,14 +7,12 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 const routes: Routes = [
   { path: 'categories', component: CategoriesTableComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'addNew', component: AddCategoryComponent }
+  { path: 'edit/:id', component: AddCategoryComponent }
 ];
 
 @NgModule({
   exports: [RouterModule],
   imports: [ RouterModule.forRoot(routes) ]
 })
-
-
 
 export class AppRoutingModule { }
