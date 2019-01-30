@@ -1,13 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoriesTableComponent } from './components/categories-table/categories-table.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 import { ProductsComponent } from './components/products/products.component';
-import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { AddEditCategoryComponent } from './components/add-edit-category/add-edit-category.component';
+import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 
 const routes: Routes = [
-  { path: 'categories', component: CategoriesTableComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'edit/:id', component: AddCategoryComponent }
+  
+  { path: '', redirectTo: '/categories', pathMatch: 'full'},
+  { path: 'categories',
+    children: [
+      { path: '', component: CategoriesComponent},
+      { path: 'edit/:id', component: AddEditCategoryComponent }
+    ] 
+  },
+  { path: 'products',
+    children: [
+      { path: '', component: ProductsComponent},
+      { path: 'edit/:id', component: AddEditProductComponent }
+    ]
+  },
+
 ];
 
 @NgModule({

@@ -7,18 +7,19 @@ import { AppComponent } from './app.component';
 import { TableService } from './services/table.service';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsComponent } from './components/products/products.component';
-import { AddCategoryComponent } from './components/add-category/add-category.component';
-import { CategoriesTableComponent } from './components/categories-table/categories-table.component';
+import { AddEditCategoryComponent } from './components/add-edit-category/add-edit-category.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoriesTableComponent,
+    CategoriesComponent,
     ProductsComponent,
-    AddCategoryComponent,
-    CategoriesTableComponent
+    AddEditCategoryComponent,
+    AddEditProductComponent
   ],
   imports: [
     BrowserModule,

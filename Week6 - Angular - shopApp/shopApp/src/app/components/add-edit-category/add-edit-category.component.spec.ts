@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CategoriesTableComponent } from './categories-table.component';
+import { AddEditCategoryComponent } from './add-edit-category.component';
 
-describe('CategoriesTableComponent', () => {
-  let component: CategoriesTableComponent;
-  let fixture: ComponentFixture<CategoriesTableComponent>;
+describe('AddCategoryComponent', () => {
+  let component: AddEditCategoryComponent;
+  let fixture: ComponentFixture<AddEditCategoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CategoriesTableComponent ]
+      declarations: [ AddEditCategoryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CategoriesTableComponent);
+    fixture = TestBed.createComponent(AddEditCategoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

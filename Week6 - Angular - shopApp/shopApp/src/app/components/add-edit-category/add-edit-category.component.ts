@@ -6,10 +6,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
-  templateUrl: './add-category.component.html',
-  styleUrls: ['./add-category.component.scss']
+  templateUrl: './add-edit-category.component.html',
+  styleUrls: ['./add-edit-category.component.scss']
 })
-export class AddCategoryComponent implements OnInit {
+export class AddEditCategoryComponent implements OnInit {
   
   categoryName: string;
   parentCategoryName: string;
@@ -29,9 +29,7 @@ export class AddCategoryComponent implements OnInit {
     // Getting id from route parameters => /edit/id
     this._route.paramMap.subscribe(parameterMap => {
       const id = +parameterMap.get('id');   // + converts to number
-      this.tableService.getCategories().subscribe
       this.addUpdateCategory(id);
-      debugger;
       this.getCategoryNames();
     })
   }

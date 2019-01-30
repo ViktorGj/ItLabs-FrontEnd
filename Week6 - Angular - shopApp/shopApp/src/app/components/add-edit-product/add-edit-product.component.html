@@ -1,0 +1,61 @@
+
+<div class="container-fluid mt-3">
+  <h1>{{headingState}}</h1>
+  <form>
+    <!-- Image upload -->
+    <div>
+        <label for="img">Picture</label>
+        <div class="productImage"></div>
+        <div>
+          <input type="file" name="myFile">
+          <button>Remove picture</button>
+        </div>
+    </div>
+    <!-- Product Name -->
+    <div class="form-group">
+      <label for="name" class="col-sm-2 col-form-label">Name:</label>
+      <div class="col-sm-6">
+        <input [(ngModel)]="productName" type="text" name="name" class="form-control" id="name" placeholder="Enter product Name">
+      </div>
+    </div>
+    <!-- Categories -->
+    <div class="form-group">
+      <label for="sel1" class="col-sm-2 col-form-label">Categories:</label>
+      <select [(ngModel)]="categories" class="form-control col-sm-6" id="sel1" name="categories">
+        <option selected="true" disabled="disabled">Options</option>
+        <option *ngFor = "let name of categoryNames" [value]="name">{{name}}</option>
+      </select>
+    </div>
+    <!-- Product manufacturer -->
+    <div class="form-group">
+      <label for="name" class="col-sm-2 col-form-label">Manufacturer:</label>
+      <div class="col-sm-6">
+        <input [(ngModel)]="manufacturer" type="text" name="manufacturer" class="form-control" id="name" placeholder="Enter manufacturer">
+      </div>
+    </div>
+    <!-- Available -->
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-form-label">Available:</label>
+        <div class="col-sm-6">
+            <input type="checkbox" name="gender" value="male" [(ngModel)]="available">
+        </div>
+      </div>
+
+    <!-- Description 1 -->
+    <div class="form-group">
+      <label for="description1" class="col-sm-2 col-form-label">Short description:</label>
+      <textarea [(ngModel)]="shortDescription" name="description1" rows="5" id="description1" class="col-sm-12"></textarea>
+    </div>
+    <!-- Description 2 -->
+    <div class="form-group">
+      <label for="description2" class="col-sm-2 col-form-label">Full description:</label>
+      <textarea [(ngModel)]="fullDescription" name="description2" rows="10" id="description2" class="col-sm-12"></textarea>
+    </div>
+
+    <!-- Edit / Update button -->
+    <div class="formButtons">
+      <button (click)="addUpdate()" type="submit" class="btn btn-outline-success">{{buttonState}}</button>
+      <button routerLink="/products" class="btn btn-outline-warning">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -7,7 +7,7 @@
           <img src="https://img.icons8.com/android/24/000000/detective.png" class="ml-2">
       </div>
       <div class="button col-md-3">
-          <button class="btn btn-success float-right" routerLink="/edit/0">Add new</button>
+          <button class="btn btn-success float-right" routerLink="/categories/edit/0">Add new</button>
       </div>
       
     </div>
@@ -23,15 +23,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of tableContent; let i = index">
+      <tr *ngFor="let category of tableContent; let i = index">
         <td>{{i + 1}}</td>
-        <td>{{product.name}}</td>
-        <td>{{product.parentCategoryName}}</td>
+        <td>{{category.name}}</td>
+        <td>{{category.parentCategoryName}}</td>
         <td class="text-center">
             <!-- delete button -->
-            <button class="mr-3" (click)="deleteModal(template, product.id)"><img src="https://img.icons8.com/windows/32/000000/trash.png"></button>
+            <button class="mr-3" (click)="deleteModal(template, category.id)"><img src="https://img.icons8.com/windows/32/000000/trash.png"></button>
             <!-- edit button -->
-            <button routerLink="/edit/{{product.id}}"><img src="https://img.icons8.com/windows/32/000000/video-editing.png"></button>
+            <button routerLink="/categories/edit/{{category.id}}"><img src="https://img.icons8.com/windows/32/000000/video-editing.png"></button>
         </td>
       </tr>
     </tbody>

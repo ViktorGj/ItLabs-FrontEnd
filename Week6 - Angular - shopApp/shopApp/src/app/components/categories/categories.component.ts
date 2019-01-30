@@ -5,13 +5,13 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-categories-table',
-  templateUrl: './categories-table.component.html',
-  styleUrls: ['./categories-table.component.scss']
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.scss']
 })
-export class CategoriesTableComponent implements OnInit {
+export class CategoriesComponent implements OnInit {
 
   constructor(private tableService: TableService,
-              private modalService: BsModalService
+              private modalService: BsModalService,
               ) { }
   tableContent: Icategory [];
   searchTerm: string;
@@ -60,6 +60,7 @@ export class CategoriesTableComponent implements OnInit {
     this.modalRef.hide();
   }
 
+  // initializing data and routing to categories when first loading page
   ngOnInit() {
     this.getData();
   }

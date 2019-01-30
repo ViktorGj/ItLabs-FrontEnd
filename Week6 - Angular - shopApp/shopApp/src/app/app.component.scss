@@ -1,21 +1,31 @@
 
 header {
     height: 15%;
-    background-color: #FDE74C;
+    background-color: #472D30;
 
     div {
         height: 100%;
 
         img {
             height: 100%;
+            margin-left: 80px;
         }
+    }
+}
+
+// Side menu
+// .active class for the chosen side option
+.active {
+    background-color: #A1E887;
+    a {
+        color: #723D46;
     }
 }
 
 .row {
     height: 85%;
     nav {
-        background-color: rgb(10, 110, 10); ;
+        background-color: #723D46 ;
         padding: 0;
 
         ul {
@@ -25,15 +35,20 @@ header {
             li {
                 font-size: 1.5rem;
                 text-align: center;
+                &:hover {
+                    background-color: #A1E887;
+                    a {
+                        color: #723D46;
+                    }     
+                }
+
                 a {
                     text-decoration: none;
                     color: white;
                 }
             }
 
-            li:hover {
-                background-color: #84A98C;
-            }
+
         }
     }
     main {
@@ -45,16 +60,18 @@ header {
 }
 
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 770px) {
     main {
         padding: 0 10px;
         margin: 0;
     }
 
     header {
-        img {
-            display: block;
-            margin: auto;
+        div {
+            img {
+                display: block;
+                margin: auto;
+            }
         }
     }
 }
