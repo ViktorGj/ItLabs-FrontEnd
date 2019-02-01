@@ -53,7 +53,7 @@ header {
     }
     main {
         overflow-y: scroll;
-        padding-left: 0 5px;
+        padding: 0 30px;
         
     }
 
@@ -73,5 +73,17 @@ header {
                 margin: auto;
             }
         }
+    }
+
+    nav {
+        display: block;
+        height: 80px;
+    }
+
+}
+
+@media only screen and (max-width: 576px) {
+    header {
+        display: none;
     }
 }

@@ -1,9 +1,53 @@
+* {
+    padding: 0;
+    margin: 10px 0 0 0;
+}
 
-
+.nameSection {
+    width: 50%;
+}
+.categorySection {
+    width: 50%;
+    select {
+        width: 100%;
+    }
+}
+.descriptionSection {
+    width: 75%;
+    textarea {
+        width: 100%;
+    }
+}
 .formButtons {
     float: right;
 
     button {
         margin-left: 5px;
+        padding: 0 10px;
+        width: 80px;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .nameSection, .categorySection, .descriptionSection {
+        width: 100%;
+    } 
+
+    .formButtons {
+        float: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+            width: 20%;
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .formButtons {
+        button {
+            width: 30%;
+        }
     }
 }

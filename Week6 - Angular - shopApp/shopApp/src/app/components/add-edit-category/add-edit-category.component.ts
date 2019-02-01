@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AddEditCategoryComponent implements OnInit {
   
   categoryName: string;
-  parentCategoryName: string;
+  parent: string;
   categoryDescription: string;
   item = {} as Icategory;
   headingState: string;
@@ -21,72 +21,75 @@ export class AddEditCategoryComponent implements OnInit {
   categoryNames: string [];
 
   public constructor(private tableService: TableService, 
-                    private categoryRouter: Router,
-                    private _route: ActivatedRoute) 
+                    private route: Router,
+                    private activatedRoute: ActivatedRoute) 
                     { }
 
   ngOnInit() {
     // Getting id from route parameters => /edit/id
-    this._route.paramMap.subscribe(parameterMap => {
+    this.activatedRoute.paramMap.subscribe(parameterMap => {
       const id = +parameterMap.get('id');   // + converts to number
-      this.addUpdateCategory(id);
-      this.getCategoryNames();
+      this.getCategoryNames(id);
+      this.setCategoryForm(id);
     })
   }
 
-  getCategoryNames(){
+  getCategoryNames(id){
     this.tableService.getCategories()
       .subscribe(categories => {
-        this.categoryNames = categories.map(category => category.name);
+        this.categoryNames = categories.filter(x => x.id != id).map(category => category.name);
         console.log(this.categoryNames);
       })
   }
 
-// Setting add/edit form depending on the add/edit event
-  addUpdateCategory(id: number){
-    // if route is edit/0 => add new category
-    // else edit category
+// Setting add/edit form depending on the passed id
+setCategoryForm(id: number){
+  this.categoryId = id;
+    // route edit/0 => set form to ADD
     if(id === 0){
       this.headingState = "Add category";
       this.buttonState = "add";
-      this.categoryId = id;
     }
+    // else set form to EDIT
     else {
       this.headingState = "Edit category";
       this.buttonState = "update";
-      this.categoryId = id;
       this.tableService.getCategory(id)
-      .subscribe((res: Icategory) => {
-        this.item = res;
-        this.categoryName = this.item.name;
-        this.parentCategoryName = this.item.parentCategoryName;
-        this.categoryDescription = this.item.description;
+        .subscribe((res: Icategory) => {
+          this.populateFormData(res);
       })
     }
   }
-  // Event on button save/update
-  addUpdate(id){
-    this.item.name = this.categoryName;
-    this.item.parentCategoryName = this.parentCategoryName;
-    this.item.description = this.categoryDescription;
+  // add/update on click
+  addUpdate(){
+    this.getFormData(this.item);
     // ADD new category
     if(this.buttonState == "add"){
       this.tableService.addCategory(this.item)
         .subscribe(res => {
-          console.log(res);
-          this.categoryRouter.navigate(['/categories']);
+          this.route.navigate(['/categories']);
         })
     }   
     // UPDATE category
     else {
-      id = this.categoryId;
-      this.tableService.updateCategory(id, this.item)
+      this.tableService.updateCategory(this.categoryId, this.item)
         .subscribe(res => {
-          console.log(res);
-          this.categoryRouter.navigate(['/categories']);
+          this.route.navigate(['/categories']);
         })
     }
   }
 
+  getFormData(category){
+    category.name = this.categoryName;
+    category.parentCategoryName = this.parent;
+    category.description = this.categoryDescription;
+  }
+
+  populateFormData(categoryData){
+    this.item = categoryData;
+    this.categoryName = this.item.name;
+    this.parent = this.item.parentCategoryName;
+    this.categoryDescription = this.item.description;
+  }
 
 }

@@ -1,24 +1,32 @@
+
 <div class="container-fluid mt-3">
   <h1>{{headingState}}</h1>
   <form>
-    <div class="form-group">
-      <label for="name" class="col-sm-2 col-form-label">Name:</label>
-      <div class="col-sm-6">
+    <!-- Name -->
+    <div class="nameSection">
+      <div>
+        <label for="name">Name:</label>
+      </div>
+      <div>
         <input [(ngModel)]="categoryName" type="text" name="name" class="form-control" id="name" placeholder="Enter category Name">
       </div>
     </div>
-
-    <div class="form-group">
-      <label for="sel1" class="col-sm-2 col-form-label">Parent category:</label>
-      <select [(ngModel)]="parentCategoryName" class="form-control col-sm-6" id="sel1" name="parentCategory">
+    <!-- Parent category select -->
+    <div class="categorySection">
+      <div>
+        <label for="sel1">Parent category:</label>
+      </div>     
+      <select [(ngModel)]="parent" id="sel1" name="parentCategory">
         <option selected="true" disabled="disabled">Options</option>
-        <option *ngFor = "let name of categoryNames" [value]="name">{{name}}</option>
+        <option *ngFor = "let name of categoryNames" [ngValue]="name">{{name}}</option>
       </select>
     </div>
-  
-    <div class="form-group">
-      <label for="description" class="col-sm-2 col-form-label">Description:</label>
-      <textarea [(ngModel)]="categoryDescription" name="description" rows="10" id="description" class="col-sm-12"></textarea>
+    <!-- Description -->
+    <div class="descriptionSection">
+      <div>
+        <label for="description">Description:</label>
+      </div>
+      <textarea [(ngModel)]="categoryDescription" name="description" rows="7" id="description"></textarea>
     </div>
     <!-- Edit / Update button -->
     <div class="formButtons">
