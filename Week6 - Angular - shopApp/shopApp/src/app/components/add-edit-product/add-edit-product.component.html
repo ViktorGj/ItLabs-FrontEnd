@@ -11,7 +11,12 @@
         <img>
       </div>
       <div class="imgButtons">
-        <input style="display:none" type="file" name="myFile" (change)="onFileSelected($event)" #fileInput>
+        <input 
+            style="display:none" 
+            type="file" 
+            name="myFile" 
+            (change)="fileUpload($event)" 
+            accept=".png, .jpg" #fileInput>
         <button type="button" (click)="fileInput.click()" class="btn btn-outline-success">Upload picture</button>
         <button class="btn btn-outline-danger">Remove picture</button>
       </div>

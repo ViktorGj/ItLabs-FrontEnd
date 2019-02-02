@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Iproduct } from 'src/app/models/product';
 import { Icategory } from 'src/app/models/category';
 import { HttpClient } from '@angular/common/http';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -12,13 +14,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./add-edit-product.component.scss']
 })
 export class AddEditProductComponent implements OnInit {
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  uploadProgress: Observable<number>;
+  downloadURL: Observable<string>;
 
   constructor(private http: HttpClient,
               private productsService: ProductsService,
               private tableService: TableService,
               private router: Router,
-              private activeRoute: ActivatedRoute) { }
-            
+              private activeRoute: ActivatedRoute,
+              private afStorage: AngularFireStorage) { }
+  
   productId: number;
   headingState: string;
   buttonState: string;
@@ -101,20 +108,14 @@ export class AddEditProductComponent implements OnInit {
     this.fullDescription = this.product.fullDescription;
     this.selectedCategory = this.product.categoryId;
   }
-
-  onFileSelected(event){
-    this.selectedFile = <File> event.target.files[0];
-    console.log(event);
-    this.onUpload();
-  }
-
-  onUpload() {
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('url', fd)
-      .subscribe(res => {
-        console.log(res);
-      })
+// storage rules: without authentication - available unauthenticated users upload
+  fileUpload(event) {
+    debugger;
+    const id = Math.random().toString(36).substring(2); // unique identifier
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(event.target.files[0]); // initiate upload task
+    this.uploadProgress = this.task.percentageChanges();
+    this.downloadURL = this.ref.getDownloadURL();
   }
 
 }

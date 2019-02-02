@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { AppComponent } from './app.component';
 import { TableService } from './services/table.service';
@@ -26,7 +28,14 @@ import { AddEditProductComponent } from './components/add-edit-product/add-edit-
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyD-QHF23swRaO4tQKU0BKzONduRv35pkGM",
+      authDomain: "shopapp-417ad.firebaseapp.com",
+      projectId: "shopapp-417ad",
+      storageBucket: "shopapp-417ad.appspot.com"
+    }),
+    AngularFireStorageModule
   ],
   providers: [TableService],
   bootstrap: [AppComponent]
