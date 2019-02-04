@@ -8,7 +8,7 @@
         <label for="name">Name:</label>
       </div>
       <div>
-        <input [(ngModel)]="categoryName" type="text" name="name" class="form-control" id="name" placeholder="Enter category Name">
+        <input [(ngModel)]="category.name" type="text" name="name" class="form-control" id="name" placeholder="Enter category Name">
       </div>
     </div>
     <!-- Parent category select -->
@@ -16,7 +16,7 @@
       <div>
         <label for="sel1">Parent category:</label>
       </div>     
-      <select [(ngModel)]="parent" id="sel1" name="parentCategory">
+      <select [(ngModel)]="category.parentCategoryName" id="sel1" name="parentCategory">
         <option selected="true" disabled="disabled">Options</option>
         <option *ngFor = "let name of categoryNames" [ngValue]="name">{{name}}</option>
       </select>
@@ -26,7 +26,7 @@
       <div>
         <label for="description">Description:</label>
       </div>
-      <textarea [(ngModel)]="categoryDescription" name="description" rows="7" id="description"></textarea>
+      <textarea [(ngModel)]="category.description" name="description" rows="7" id="description"></textarea>
     </div>
     <!-- Edit / Update button -->
     <div class="formButtons">

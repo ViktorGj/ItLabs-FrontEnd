@@ -11,12 +11,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AddEditCategoryComponent implements OnInit {
   
-  categoryName: string;
-  parent: string;
-  categoryDescription: string;
-  item = {} as Icategory;
+  // categoryName: string;
+  // parent: string;
+  // categoryDescription: string;
   headingState: string;
   buttonState: string;
+
+  category = {} as Icategory;
   categoryId: number;
   categoryNames: string [];
 
@@ -56,40 +57,26 @@ setCategoryForm(id: number){
       this.buttonState = "update";
       this.tableService.getCategory(id)
         .subscribe((res: Icategory) => {
-          this.populateFormData(res);
+          this.category = res;
       })
     }
   }
   // add/update on click
   addUpdate(){
-    this.getFormData(this.item);
     // ADD new category
     if(this.buttonState == "add"){
-      this.tableService.addCategory(this.item)
+      this.tableService.addCategory(this.category)
         .subscribe(res => {
           this.route.navigate(['/categories']);
         })
     }   
     // UPDATE category
     else {
-      this.tableService.updateCategory(this.categoryId, this.item)
+      this.tableService.updateCategory(this.categoryId, this.category)
         .subscribe(res => {
           this.route.navigate(['/categories']);
         })
     }
-  }
-
-  getFormData(category){
-    category.name = this.categoryName;
-    category.parentCategoryName = this.parent;
-    category.description = this.categoryDescription;
-  }
-
-  populateFormData(categoryData){
-    this.item = categoryData;
-    this.categoryName = this.item.name;
-    this.parent = this.item.parentCategoryName;
-    this.categoryDescription = this.item.description;
   }
 
 }
