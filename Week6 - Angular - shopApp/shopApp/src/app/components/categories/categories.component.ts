@@ -11,7 +11,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class CategoriesComponent implements OnInit {
 
   constructor(private tableService: TableService,
-              private modalService: BsModalService,
+              private modalService: BsModalService
               ) { }
   tableContent: Icategory [];
   searchTerm: string;

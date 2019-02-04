@@ -18,10 +18,8 @@ export class AddEditProductComponent implements OnInit {
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   uploadProgress: Observable<number>;
-  downloadURL: string;
 
-  constructor(private http: HttpClient,
-              private productsService: ProductsService,
+  constructor(private productsService: ProductsService,
               private tableService: TableService,
               private router: Router,
               private activeRoute: ActivatedRoute,
@@ -31,15 +29,7 @@ export class AddEditProductComponent implements OnInit {
   headingState: string;
   buttonState: string;
   product = {} as Iproduct;
-  productName: string;
   categories: Icategory [];
-  selectedCategory: number;
-  manufacturer: string;
-  available: boolean;
-  shortDescription: string;
-  fullDescription: string;
-  selectedFile: File = null;
-
 
   ngOnInit() {
     this.activeRoute.paramMap
@@ -68,13 +58,12 @@ export class AddEditProductComponent implements OnInit {
       this.buttonState = "update";
       this.productsService.getProduct(id)
         .subscribe((res: Iproduct) => {
-          this.populateFormData(res);
+          this.product = res;
       })
     }
   }
   // onClick event in product form to save or update product
   addUpdate(){
-    this.getFormData(this.product);
     // ADD
     if(this.buttonState == "add"){
       this.productsService.addProduct(this.product)
@@ -90,29 +79,8 @@ export class AddEditProductComponent implements OnInit {
         })
     }
   }
-// function - pass data from form to product
-  getFormData(product){
-    product.name = this.productName;
-    product.imageUrl = this.downloadURL;
-    product.manufacturer = this.manufacturer;
-    product.isAvailable = (this.available != null) ? this.available : false;
-    product.shortDescription = this.shortDescription;
-    product.fullDescription = this.fullDescription;
-    product.categoryId = this.selectedCategory;
-  }
-// function - populate form to edit product
-  populateFormData(productData){
-    this.product = productData;
-    this.productName = this.product.name;
-    this.downloadURL = this.product.imageUrl;
-    this.manufacturer = this.product.manufacturer;
-    this.available = this.product.isAvailable;
-    this.shortDescription = this.product.shortDescription;
-    this.fullDescription = this.product.fullDescription;
-    this.selectedCategory = this.product.categoryId;
-  }
 
-// storage rules: without authentication - available unauthenticated users upload
+// Image upload
   fileUpload(event) {
     const id = Math.random().toString(36).substring(2); // unique identifier
     this.ref = this.afStorage.ref(id);
@@ -122,15 +90,15 @@ export class AddEditProductComponent implements OnInit {
       .pipe(finalize(() => {
           this.ref.getDownloadURL()
             .subscribe(url => {
-          this.downloadURL = url;  // get and insert imageUrl in product
+          this.product.imageUrl = url;  // get and insert imageUrl in product
           console.log(url);
         });
       })
     ).subscribe();
   }
-
+// Remove image
   removeImage(){
-    this.downloadURL = "";
+    this.product.imageUrl = "";
   }
 
 }

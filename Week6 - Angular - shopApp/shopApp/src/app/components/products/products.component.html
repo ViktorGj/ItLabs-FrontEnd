@@ -1,4 +1,38 @@
 
 
-<h1>Products</h1>
-<h3>To Add product go to route: /products/edit/0</h3>
+<table class="table table-hover">
+    <thead class="thead">
+      <tr>
+        <th>#</th>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Categories</th>
+        <th>Price</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productsList; let i = index;">
+        <td>{{i + 1}}</td>
+        <td class="imageCell"><img [src]="product.imageUrl"></td>
+        <td>{{product.name}}</td>
+        <td>{{product.categoryId}}</td>
+        <td>Price</td>   
+        <td class="text-center">
+            <!-- delete button -->
+            <button class="mr-3" (click)="deleteModal(template, product.id)"><img src="https://img.icons8.com/windows/32/000000/trash.png"></button>
+            <!-- edit button -->
+            <button routerLink="/products/edit/{{product.id}}"><img src="https://img.icons8.com/windows/32/000000/video-editing.png"></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- DELETE confirmation message template -->
+<ng-template #template>
+    <div class="modal-body text-center">
+        <p>Are you sure you want to perform this action?</p>
+        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+    </div>
+</ng-template>

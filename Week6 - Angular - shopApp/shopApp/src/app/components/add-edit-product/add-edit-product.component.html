@@ -8,7 +8,7 @@
         <label for="img">Picture</label>
       </div>
       <div class="productImage">
-        <img [src]="downloadURL">
+        <img [src]="product.imageUrl">
       </div>
       <div class="imgButtons">
         <input 
@@ -27,7 +27,7 @@
         <label for="name">Name:</label>
       </div>
       <div>
-        <input [(ngModel)]="productName" type="text" name="name" class="form-control" id="name" placeholder="Enter product Name">
+        <input [(ngModel)]="product.name" type="text" name="name" class="form-control" id="name" placeholder="Enter product Name">
       </div>
     </div>
     <!-- Categories -->
@@ -35,7 +35,7 @@
       <div>
         <label for="sel1">Categories:</label>
       </div>
-      <select [(ngModel)]="selectedCategory" id="sel1" name="categories">
+      <select [(ngModel)]="product.categoryId" id="sel1" name="categories">
         <option selected="true" disabled="disabled">Options</option>
         <option *ngFor = "let category of categories" [ngValue]="category.id">{{category.name}}</option>
       </select>
@@ -44,7 +44,7 @@
     <div class="manufacturerSection">
       <label for="name">Manufacturer:</label>
       <div>
-        <input [(ngModel)]="manufacturer" type="text" name="manufacturer" class="form-control" id="name" placeholder="Enter manufacturer">
+        <input [(ngModel)]="product.manufacturer" type="text" name="manufacturer" class="form-control" id="name" placeholder="Enter manufacturer">
       </div>
     </div>
     <!-- Available -->
@@ -53,7 +53,7 @@
         <label for="name" >Available:</label>
       </div>
       <div >
-        <input type="checkbox" name="gender" [(ngModel)]="available">
+        <input type="checkbox" name="gender" [(ngModel)]="product.isAvailable">
       </div>
     </div>
 
@@ -62,14 +62,14 @@
       <div>
         <label for="description1">Short description:</label>
       </div>
-      <textarea [(ngModel)]="shortDescription" name="description1" rows="2" id="description1"></textarea>
+      <textarea [(ngModel)]="product.shortDescription" name="description1" rows="2" id="description1"></textarea>
     </div>
     <!-- Description 2 -->
     <div class="description2">
       <div>
         <label for="description2">Full description:</label>
       </div>
-      <textarea [(ngModel)]="fullDescription" name="description2" rows="5" id="description2"></textarea>
+      <textarea [(ngModel)]="product.fullDescription" name="description2" rows="5" id="description2"></textarea>
     </div>
 
     <!-- Edit / Update button -->
