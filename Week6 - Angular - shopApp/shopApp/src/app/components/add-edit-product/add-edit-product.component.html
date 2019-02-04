@@ -8,7 +8,7 @@
         <label for="img">Picture</label>
       </div>
       <div class="productImage">
-        <img>
+        <img [src]="downloadURL">
       </div>
       <div class="imgButtons">
         <input 
@@ -18,7 +18,7 @@
             (change)="fileUpload($event)" 
             accept=".png, .jpg" #fileInput>
         <button type="button" (click)="fileInput.click()" class="btn btn-outline-success">Upload picture</button>
-        <button class="btn btn-outline-danger">Remove picture</button>
+        <button class="btn btn-outline-danger" (click)="removeImage()">Remove picture</button>
       </div>
     </div>
     <!-- Product Name -->

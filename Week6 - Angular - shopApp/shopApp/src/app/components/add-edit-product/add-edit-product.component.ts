@@ -7,6 +7,7 @@ import { Icategory } from 'src/app/models/category';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs/Observable';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -17,7 +18,7 @@ export class AddEditProductComponent implements OnInit {
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   uploadProgress: Observable<number>;
-  downloadURL: Observable<string>;
+  downloadURL: string;
 
   constructor(private http: HttpClient,
               private productsService: ProductsService,
@@ -92,6 +93,7 @@ export class AddEditProductComponent implements OnInit {
 // function - pass data from form to product
   getFormData(product){
     product.name = this.productName;
+    product.imageUrl = this.downloadURL;
     product.manufacturer = this.manufacturer;
     product.isAvailable = (this.available != null) ? this.available : false;
     product.shortDescription = this.shortDescription;
@@ -102,20 +104,33 @@ export class AddEditProductComponent implements OnInit {
   populateFormData(productData){
     this.product = productData;
     this.productName = this.product.name;
+    this.downloadURL = this.product.imageUrl;
     this.manufacturer = this.product.manufacturer;
     this.available = this.product.isAvailable;
     this.shortDescription = this.product.shortDescription;
     this.fullDescription = this.product.fullDescription;
     this.selectedCategory = this.product.categoryId;
   }
+
 // storage rules: without authentication - available unauthenticated users upload
   fileUpload(event) {
-    debugger;
     const id = Math.random().toString(36).substring(2); // unique identifier
     this.ref = this.afStorage.ref(id);
     this.task = this.ref.put(event.target.files[0]); // initiate upload task
     this.uploadProgress = this.task.percentageChanges();
-    this.downloadURL = this.ref.getDownloadURL();
+    this.task.snapshotChanges()
+      .pipe(finalize(() => {
+          this.ref.getDownloadURL()
+            .subscribe(url => {
+          this.downloadURL = url;  // get and insert imageUrl in product
+          console.log(url);
+        });
+      })
+    ).subscribe();
+  }
+
+  removeImage(){
+    this.downloadURL = "";
   }
 
 }
