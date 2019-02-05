@@ -1,26 +1,43 @@
-// Search and add button
-.row {
-    display: block;
-    height: 40px;
-    div {
-        .search {
 
-            display: inline;
-        }
-
-        .button {
-            display: inline;
-        }
-    }
-
+* {
+    padding: 0;
+    margin:0;
 }
-
-
-table {
-    margin: auto;
-    .thead {
+// Side menu + main content
+.row {
+    height: 85%;
+    .sideMenu {
         background-color: #723D46;
-        color: white;
+    }
+    // Main content: products/categories table
+    main {
+        overflow-y: scroll;
+        padding: 0 30px;
+        // Search and add button
+        .row {
+            display: block;
+            height: 40px;
+            div {
+                .search {
+
+                    display: inline;
+                }
+
+                .button {
+                    display: inline;
+                }
+            }
+
+        }
+
+
+        table {
+            margin: auto;
+            .thead {
+                background-color: #723D46;
+                color: white;
+            }
+        }
     }
 }
 

@@ -10,6 +10,7 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
   apiUrl = 'http://localhost:3000/products';
+  searchUrl = 'http://localhost:3000/products?filter[limit]=1&filter[where][name][eq]=';
 
   getProducts() : Observable<any> {
     return this.http.get(this.apiUrl);
@@ -29,6 +30,10 @@ export class ProductsService {
 
   deleteProduct(id){
     return this.http.delete(this.apiUrl + `/${id}`);
+  }
+
+  searchProduct(searchTerm) {
+    return this.http.get(this.searchUrl + searchTerm);
   }
 
 }

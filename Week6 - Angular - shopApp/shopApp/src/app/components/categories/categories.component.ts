@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TableService } from '../../services/table.service';
 import { Icategory } from '../../models/category';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categories-table',
@@ -11,7 +12,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class CategoriesComponent implements OnInit {
 
   constructor(private tableService: TableService,
-              private modalService: BsModalService
+              private modalService: BsModalService,
+              private toastrService: ToastrService
               ) { }
   tableContent: Icategory [];
   searchTerm: string;
@@ -54,6 +56,7 @@ export class CategoriesComponent implements OnInit {
     id = this.categoryId;
     this.deleteData(id);
     this.modalRef.hide();
+    this.toastrService.success("Category successfully deleted");
   }
  
   decline(): void {

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Icategory } from '../../models/category';
 import { TableService } from '../../services/table.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class AddEditCategoryComponent implements OnInit {
 
   public constructor(private tableService: TableService, 
                     private route: Router,
-                    private activatedRoute: ActivatedRoute) 
+                    private activatedRoute: ActivatedRoute,
+                    private toastrService: ToastrService) 
                     { }
 
   ngOnInit() {
@@ -68,6 +70,7 @@ setCategoryForm(id: number){
       this.tableService.addCategory(this.category)
         .subscribe(res => {
           this.route.navigate(['/categories']);
+          this.toastrService.success("Category successfully added");
         })
     }   
     // UPDATE category
@@ -75,6 +78,7 @@ setCategoryForm(id: number){
       this.tableService.updateCategory(this.categoryId, this.category)
         .subscribe(res => {
           this.route.navigate(['/categories']);
+          this.toastrService.success("Category successfully updated");
         })
     }
   }

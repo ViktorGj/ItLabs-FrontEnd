@@ -1,4 +1,17 @@
 
+  <form class="row mt-2 mb-2 ml-2 mr-2">
+    <div class="row">
+      <div class="search form-inline col-md-9">
+          <input [(ngModel)]="searchTerm" (input)="checkIfEmpty($event.target.value)" type="search" name="search" class="form-control"  placeholder="Search">
+          <img src="https://img.icons8.com/android/24/000000/detective.png" class="ml-2">
+      </div>
+      <!-- Add product button -->
+      <div class="button col-md-3">
+          <button class="btn btn-success float-right" routerLink="/products/edit/0">Add new</button>
+      </div>
+      
+    </div>
+  </form>
 
 <table class="table table-hover">
     <thead class="thead">
@@ -12,7 +25,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of productsList; let i = index;">
+      <tr *ngFor="let product of productsList | paginate: {itemsPerPage: 10, currentPage: activePage}; let i = index;">
         <td>{{i + 1}}</td>
         <td class="imageCell"><img [src]="product.imageUrl"></td>
         <td>{{product.name}}</td>
@@ -27,6 +40,7 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="activePage = $event"></pagination-controls>
 
   <!-- DELETE confirmation message template -->
 <ng-template #template>

@@ -4,10 +4,10 @@ import { ProductsService } from 'src/app/services/products.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Iproduct } from 'src/app/models/product';
 import { Icategory } from 'src/app/models/category';
-import { HttpClient } from '@angular/common/http';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs/Observable';
 import { finalize } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -23,7 +23,8 @@ export class AddEditProductComponent implements OnInit {
               private tableService: TableService,
               private router: Router,
               private activeRoute: ActivatedRoute,
-              private afStorage: AngularFireStorage) { }
+              private afStorage: AngularFireStorage,
+              private toastrService: ToastrService) { }
   
   productId: number;
   headingState: string;
@@ -69,6 +70,7 @@ export class AddEditProductComponent implements OnInit {
       this.productsService.addProduct(this.product)
         .subscribe(res => {
           this.router.navigate(['/products']);
+          this.toastrService.success("Product successfully added");
         })
     }   
     // UPDATE
@@ -76,6 +78,7 @@ export class AddEditProductComponent implements OnInit {
       this.productsService.updateProduct(this.productId, this.product)
         .subscribe(res => {
           this.router.navigate(['/products']);
+          this.toastrService.success("Product successfully updated");
         })
     }
   }

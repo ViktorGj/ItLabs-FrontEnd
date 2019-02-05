@@ -4,6 +4,8 @@ import { Iproduct } from 'src/app/models/product';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TableService } from '../../services/table.service';
 import { Icategory } from '../../models/category';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-products',
@@ -14,12 +16,14 @@ export class ProductsComponent implements OnInit {
 
   constructor(private productsService: ProductsService,
               private modalService: BsModalService,
-              private tableService: TableService) { }
+              private tableService: TableService,
+              private toastrService: ToastrService) { }
 
   productsList: Iproduct [];
   categories: Icategory [];
   productId: number;
   modalRef: BsModalRef;
+  searchTerm: string;
 
   getCategories(){
     this.tableService.getCategories()
@@ -32,6 +36,20 @@ export class ProductsComponent implements OnInit {
     this.productsService.getProducts().subscribe(data => {
       this.productsList = data;
     })
+  }
+
+  // Search product by name
+  checkIfEmpty(searchTerm: string) {
+    searchTerm = this.searchTerm;
+    this.productsService.searchProduct(searchTerm)
+      .subscribe((res: Iproduct[]) => {
+        if (searchTerm == ""){
+          this.getData();
+        }
+        else {
+          this.productsList = res;
+        }
+      })
   }
 
   deleteData (id) {
@@ -50,6 +68,7 @@ export class ProductsComponent implements OnInit {
     id = this.productId;
     this.deleteData(id);
     this.modalRef.hide();
+    this.toastrService.success("Product successfully deleted");
   }
  
   decline(): void {
