@@ -1,5 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+    padding: 0;
+    margin:0;
+}
+
 html, body {
     height: 100%;
+}
+
+
+// Side menu + main content
+.row {
+    height: 85%;
+    // Main content: products/categories table
+    main {
+        overflow-y: scroll;
+        padding: 0 30px;
+        // Search and add button
+        .row {
+            display: block;
+            height: 40px;
+            div {
+                .search {
+
+                    display: inline;
+                }
+
+                .button {
+                    display: inline;
+                }
+            }
+
+        }
+        table {
+            margin: auto;
+            .thead {
+                background-color: #723D46;
+                color: white;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    html, body {
+        height: auto;
+    }
+
 }

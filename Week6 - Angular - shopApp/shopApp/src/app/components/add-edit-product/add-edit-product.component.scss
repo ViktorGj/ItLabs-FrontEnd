@@ -1,10 +1,11 @@
 
+
 * {
     padding: 0;
-    margin: 8px 0 0 0;
+    margin: 0 0 0 0;
 }
 
-.addEditForm{
+.addEditForm {
     padding: 0 40px;
     .imageSection {
         width: 50%;
@@ -49,10 +50,11 @@
             width: 100%;
         }
     }
-    .formButtons {
-        float: right;
+    .formBtns {
+        width: 75%;
         margin-bottom: 15px;
         button {
+            float: right;
             margin-left: 5px;
             padding: 0 10px;
         }
@@ -66,24 +68,28 @@
      .manufacturerSection, 
      .description1, 
      .description2 {
-        width: 100%;
+        width: 100% !important;
     }
 
-    .formButtons {
-        float: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .formBtns {
+        float: none !important; 
+        display: flex ;
+        align-items: center ;
+        justify-content: center ;
         button {
-            width: 20%;
+            width: 30%;
         }
     }
 }
 
 @media only screen and (max-width: 576px) {
     .formButtons {
+        float: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         button {
-            width: 30%;
+            width: 50%;
         }
     }
 
@@ -97,5 +103,5 @@
             justify-content: center;
         }
     }
-
 }
+

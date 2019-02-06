@@ -77,6 +77,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
+    this.getCategories();
   }
 
 }

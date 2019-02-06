@@ -1,0 +1,33 @@
+
+header {
+    height: 15%;
+    background-color: #472D30;
+
+    div {
+        height: 100%;
+
+        img {
+            height: 100%;
+            margin-left: 80px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 770px) {
+
+    header {
+        div {
+            img {
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    header {
+        display: none;
+    }
+}

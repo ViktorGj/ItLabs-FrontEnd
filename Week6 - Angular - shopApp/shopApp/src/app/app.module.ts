@@ -23,6 +23,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MenuComponent } from './components/menu/menu.component';
     ProductsComponent,
     AddEditCategoryComponent,
     AddEditProductComponent,
-    MenuComponent
+    MenuComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
