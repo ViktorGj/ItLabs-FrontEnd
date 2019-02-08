@@ -1,53 +1,60 @@
 * {
     padding: 0;
-    margin: 10px 0 0 0;
+    margin: 0 0 0 0;
 }
 
-.nameSection {
-    width: 50%;
-}
-.categorySection {
-    width: 50%;
-    select {
-        width: 100%;
+.addEditForm {
+    padding: 0 8%;
+    .nameSection,
+    .categorySection,
+    .descriptionSection,
+    .formButtons {
+        margin-top: 10px;
+    }
+    
+    .nameSection {
+        width: 50%;
+    }
+    .categorySection {
+        width: 50%;
+        select {
+            width: 100%;
+        }
+    }
+    .descriptionSection {
+        width: 75%;
+        textarea {
+            width: 100%;
+        }
+    }
+    .formButtons {
+        width: 75%;
+        margin-bottom: 15px;
+    
+        button {
+            float: right;
+            margin-left: 5px;
+            padding: 0 10px;
+            width: 80px;
+        }
     }
 }
-.descriptionSection {
-    width: 75%;
-    textarea {
-        width: 100%;
-    }
-}
-.formButtons {
-    float: right;
 
-    button {
-        margin-left: 5px;
-        padding: 0 10px;
-        width: 80px;
-    }
-}
+
 
 @media only screen and (max-width: 770px) {
-    .nameSection, .categorySection, .descriptionSection {
-        width: 100%;
+    .nameSection, 
+    .categorySection, 
+    .descriptionSection {
+        width: 100% !important;
     } 
 
     .formButtons {
+        width: 100% !important;
         float: none;
         display: flex;
         align-items: center;
         justify-content: center;
-        button {
-            width: 20%;
-        }
     }
 }
 
-@media only screen and (max-width: 576px) {
-    .formButtons {
-        button {
-            width: 30%;
-        }
-    }
-}

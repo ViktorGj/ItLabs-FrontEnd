@@ -1,0 +1,33 @@
+
+  <div class="portalHeader ">
+    <div class="logo">
+      <img src="../../../assets/shopLogo.png">
+    </div>
+    <div class="cart">
+        <i class="fa fa-shopping-cart"></i>
+    </div>
+    <div class="search">
+      <form class="form-inline my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+  </div>
+
+
+  <div class="container">
+      <div class="row">
+          <div *ngFor="let product of productsList" class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <p class="card-text">&#8364; {{product.price}}</p>
+                  <button class="btn btn-success">Add to card</button>
+                </div>
+              </div>   
+          </div>
+      </div>
+  </div>
+
+

@@ -1,1 +1,13 @@
 
+@media only screen and (max-width: 576px) {
+    .search {
+        display: block !important;
+        .searchInput {
+            display: inline-block;
+            width: 70%;
+        }
+        img {
+            display: inline-block;
+        }
+    }
+}

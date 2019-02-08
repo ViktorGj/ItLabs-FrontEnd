@@ -24,6 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PortalComponent } from './components/portal/portal.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { HeaderComponent } from './components/header/header.component';
     AddEditCategoryComponent,
     AddEditProductComponent,
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    PortalComponent
   ],
   imports: [
     CommonModule,

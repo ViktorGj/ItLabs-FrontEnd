@@ -6,7 +6,18 @@
 }
 
 .addEditForm {
-    padding: 0 40px;
+    padding: 0 8%;
+    h1,
+    .imageSection,
+     .nameSection, 
+     .categoriesSection, 
+     .manufacturerSection, 
+     .description1, 
+     .description2,
+     .formBtns {
+        margin-top: 10px;
+    }
+
     .imageSection {
         width: 50%;
         .productImage {
@@ -38,6 +49,11 @@
     .manufacturerSection {
         width: 50%;
     }
+    .productPrice {
+        input {
+            width: 50%;
+        }
+    }
     .description1 {
         width: 75%;
         textarea {
@@ -57,6 +73,7 @@
             float: right;
             margin-left: 5px;
             padding: 0 10px;
+            width: 80px;
         }
     }
 }
@@ -71,27 +88,22 @@
         width: 100% !important;
     }
 
+    .productPrice {
+        input {
+            width: 100% !important;
+        }
+    }
+
     .formBtns {
+        width: 100% !important;
         float: none !important; 
         display: flex ;
         align-items: center ;
         justify-content: center ;
-        button {
-            width: 30%;
-        }
     }
 }
 
 @media only screen and (max-width: 576px) {
-    .formButtons {
-        float: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        button {
-            width: 50%;
-        }
-    }
 
     .imageSection {
         .productImage {
