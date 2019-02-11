@@ -5,6 +5,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { AddEditCategoryComponent } from './components/add-edit-category/add-edit-category.component';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { PortalComponent } from './components/portal/portal.component'
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 const routes: Routes = [
   
@@ -21,7 +22,12 @@ const routes: Routes = [
       { path: 'edit/:id', component: AddEditProductComponent }
     ]
   },
-  { path: 'portal', component: PortalComponent}
+  { path: 'portal', 
+    children: [
+      { path: '', component: PortalComponent},
+      { path: 'view/:id', component: ProductViewComponent }
+    ]
+  }
 
 ];
 

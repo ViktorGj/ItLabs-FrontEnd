@@ -5,22 +5,19 @@
     height: 80px;
     .logo {
         height: 100%;
-        display: inline-block;
+        display: block;
         float: left;
         img {
             margin-left: 30px;
             height: 100%;
         }
     }
-    // .searchHead {
-    //     height: 80px;
-    //     background-color: #654236;
+
     .search {
         height: 100%;
         width: 80%;
         margin: auto;
-        // display: inline-block;
-        // float: left;
+
         form {
             padding-top: 10px;
             margin: 0;

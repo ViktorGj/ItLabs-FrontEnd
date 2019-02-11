@@ -1,0 +1,19 @@
+
+<div class="row">
+  <div class="imageContainer col-md-3">
+    <img [src]="product.imageUrl">
+  </div>
+  <div class="col-md-9">
+    <h1>{{product.name}}</h1>
+    <p>Short description: {{product.shortDescription}}</p>
+    <p>Manufacturer: {{product.manufacturer}}</p>
+    <p>Availability: {{product.isAvailable}}</p>
+    <div>
+      <input type="number">
+      <button class="btn btn-primary">Add to cart</button>
+    </div>
+  </div>
+</div>
+<div>
+  Full description: {{product.fullDescription}}
+</div>

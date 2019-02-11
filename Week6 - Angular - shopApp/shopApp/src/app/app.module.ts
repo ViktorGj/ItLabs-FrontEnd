@@ -25,6 +25,7 @@ import { AddEditProductComponent } from './components/add-edit-product/add-edit-
 import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PortalComponent } from './components/portal/portal.component';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { PortalComponent } from './components/portal/portal.component';
     AddEditProductComponent,
     MenuComponent,
     HeaderComponent,
-    PortalComponent
+    PortalComponent,
+    ProductViewComponent
   ],
   imports: [
     CommonModule,
