@@ -40,6 +40,18 @@
     }
 }
 
+// Category buttons
+.categoryButtonsContainer {
+    padding: 10px;
+    .categoryButtons {
+        display: inline;
+        button {
+            margin: 5px;
+        }
+    }
+}
+
+
 
 // Product cards
 .container {

@@ -1,4 +1,4 @@
-
+  <!-- Portal Header -->
   <div class="portalHeader ">
     <div class="logo">
       <img src="../../../assets/shopLogo.png">
@@ -8,15 +8,24 @@
     </div>
     <div class="search">
       <form class="form-inline my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <input [(ngModel)]="searchWord" (input)="isEmpty($event.target.value)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <button (click)="searchProducts()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
   </div>
 
+  <!-- Category Buttons -->
+  <div class="categoryButtonsContainer">
+    <button class="btn btn-outline-dark" (click)="getProducts()">All Products</button>
+    <div *ngFor="let category of categories" class="categoryButtons ">
+      <button (click)="selectProducts(category.id)" class="btn btn-outline-dark">{{category.name}}</button>
+    </div>
+  </div>
 
+  <!-- Product cards -->
   <div class="container">
       <div class="row">
+        <!-- <p *ngIf="productsList.length==0">No products</p> -->
           <div *ngFor="let product of productsList" class="col-sm-6 col-md-4 col-lg-3" routerLink="/portal/view/{{product.id}}">
               <div class="card">
                 <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
