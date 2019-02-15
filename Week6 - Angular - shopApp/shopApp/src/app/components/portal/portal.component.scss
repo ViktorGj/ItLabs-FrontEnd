@@ -1,45 +1,5 @@
 
 
-.portalHeader {
-    background-color: #654236;
-    height: 80px;
-    .logo {
-        height: 100%;
-        display: block;
-        float: left;
-        img {
-            margin-left: 30px;
-            height: 100%;
-        }
-    }
-
-    .search {
-        height: 100%;
-        width: 80%;
-        margin: auto;
-
-        form {
-            padding-top: 10px;
-            margin: 0;
-            justify-content: center;
-            input {
-                width: 50%;
-            }
-        }
-    }
-    .cart {
-        height: 100%;
-        margin: auto;
-        float: right;
-        width: 100px;
-
-        i {
-            font-size: 50px;
-            color: white;
-        }
-    }
-}
-
 // Category buttons
 .categoryButtonsContainer {
     padding: 10px;
@@ -51,45 +11,22 @@
     }
 }
 
-
-
 // Product cards
 .container {
     margin-top: 30px;
+    margin-bottom: 30px;
     .card {
         margin-top: 20px;
-        padding: 0 10px;
+        padding: 10px;
         img {
             height: 100px;
         }
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .portalHeader {
-        height: 160px;
-        .logo {
-            display: inline-block;
-            float: none;
-            height: 80px;
-        }
-    
-        .search {
-            display: block;
-            float: none;
-            width: 100%;
-            height: auto;
-        }
-    }
-}
-
-@media only screen and (max-width: 576px) {
-    .search {
-        width: 100%;
-        form {
+        .card-body {
+            padding: 10px 0;
             button {
-                margin-left: 7px;
+                display: block;
+                margin: auto;
             }
         }
-    }   
+    }
 }

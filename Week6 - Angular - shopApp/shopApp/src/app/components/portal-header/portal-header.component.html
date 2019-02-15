@@ -1,0 +1,18 @@
+
+
+  <!-- Portal Header -->
+  <div class="portalHeader ">
+    <div class="logo">
+      <img src="../../../assets/logo4.png">
+    </div>
+    <div class="cart">
+        <i class="fa fa-shopping-cart"></i>
+        <span>{{cartQuantity}}</span>
+    </div>
+    <div class="search">
+      <form class="form-inline my-lg-0">
+        <input [(ngModel)]="searchWord" (input)="isEmpty($event.target.value)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <button (click)="searchProducts()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>

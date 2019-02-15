@@ -26,6 +26,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PortalComponent } from './components/portal/portal.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
+import { PortalHeaderComponent } from './components/portal-header/portal-header.component';
+import { PortalFooterComponent } from './components/portal-footer/portal-footer.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { ProductViewComponent } from './components/product-view/product-view.com
     MenuComponent,
     HeaderComponent,
     PortalComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    PortalHeaderComponent,
+    PortalFooterComponent
   ],
   imports: [
     CommonModule,

@@ -1,18 +1,6 @@
-  <!-- Portal Header -->
-  <div class="portalHeader ">
-    <div class="logo">
-      <img src="../../../assets/shopLogo.png">
-    </div>
-    <div class="cart">
-        <i class="fa fa-shopping-cart"></i>
-    </div>
-    <div class="search">
-      <form class="form-inline my-lg-0">
-        <input [(ngModel)]="searchWord" (input)="isEmpty($event.target.value)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-        <button (click)="searchProducts()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
+
+  <!-- Portal header -->
+  <app-portal-header></app-portal-header>
 
   <!-- Category Buttons -->
   <div class="categoryButtonsContainer">
@@ -26,17 +14,19 @@
   <div class="container">
       <div class="row">
         <!-- <p *ngIf="productsList.length==0">No products</p> -->
-          <div *ngFor="let product of productsList" class="col-sm-6 col-md-4 col-lg-3" routerLink="/portal/view/{{product.id}}">
+          <div *ngFor="let product of productsList" class="col-sm-6 col-md-4 col-lg-3" >
               <div class="card">
-                <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+                <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap" routerLink="/portal/view/{{product.id}}">
                 <div class="card-body">
-                  <h5 class="card-title">{{product.name}}</h5>
+                  <h5 class="card-title" routerLink="/portal/view/{{product.id}}">{{product.name}}</h5>
                   <p class="card-text">&#8364; {{product.price}}</p>
-                  <button class="btn btn-success">Add to card</button>
+                  <button class="btn btn-success" (click)="addToCart(product)">Add to card</button>
                 </div>
               </div>   
           </div>
       </div>
   </div>
+  <!-- Portal footer -->
+  <app-portal-footer></app-portal-footer>
 
 
