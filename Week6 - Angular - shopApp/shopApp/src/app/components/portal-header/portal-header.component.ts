@@ -9,10 +9,11 @@ import { PortalComponent } from '../portal/portal.component';
 export class PortalHeaderComponent implements OnInit {
 
   constructor(private portalComponent: PortalComponent) { }
-  cartQuantity: number;
+  @Input() quantity: number;
 
   ngOnInit() {
-    this.cartQuantity = localStorage.length;
+
   }
+
 
 }

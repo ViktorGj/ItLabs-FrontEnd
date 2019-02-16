@@ -94,7 +94,6 @@ export class AddEditProductComponent implements OnInit {
           this.ref.getDownloadURL()
             .subscribe(url => {
           this.product.imageUrl = url;  // get and insert imageUrl in product
-          console.log(url);
         });
       })
     ).subscribe();

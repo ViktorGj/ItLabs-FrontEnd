@@ -14,7 +14,7 @@ export class PortalComponent implements OnInit {
 
   constructor(private productsService: ProductsService,
               private tableService: TableService,
-              private portalService: PortalService ) { }
+              private portalService: PortalService) { }
 
   productsList: Iproduct[];
   categories: Icategory[];
@@ -64,13 +64,11 @@ export class PortalComponent implements OnInit {
     }
   }
 
- 
   addToCart(product){
     let products: Iproduct[] = [];
     localStorage.setItem(product.id, JSON.stringify(product));
     this.cartQuantity = localStorage.length;
     let keys = Object.keys(localStorage);
-    console.log(keys);
     for (let i=0; i<keys.length; i++) {
       let item: Iproduct = JSON.parse(localStorage.getItem(keys[i]));
       products.push(item);
