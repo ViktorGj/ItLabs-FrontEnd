@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Iproduct } from 'src/app/models/product';
+import { PortalService } from '../../services/portal.service'
 
 @Component({
   selector: 'app-portal-header',
@@ -9,13 +10,15 @@ import { Iproduct } from 'src/app/models/product';
 })
 export class PortalHeaderComponent implements OnInit {
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService,
+              private portalService: PortalService) { }
+
   @Input() quantity: number;
   productsList: Iproduct[];
   searchWord: string;
 
   ngOnInit() {
-
+    this.portalService.castProducts.subscribe(products => this.productsList = products);
   }
 
   getProducts() {
@@ -26,6 +29,14 @@ export class PortalHeaderComponent implements OnInit {
       })
   }
 
+  searchProducts() {
+    this.portalService.searchProducts(this.searchWord);
+  }
 
+  isEmpty(event){
+    if(event == ""){
+      this.portalService.searchProducts(event);
+    }
+  }
 
 }

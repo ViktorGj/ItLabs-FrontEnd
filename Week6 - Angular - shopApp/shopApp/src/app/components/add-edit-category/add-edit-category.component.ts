@@ -12,9 +12,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddEditCategoryComponent implements OnInit {
   
-  // categoryName: string;
-  // parent: string;
-  // categoryDescription: string;
   headingState: string;
   buttonState: string;
 

@@ -28,7 +28,8 @@ import { PortalComponent } from './components/portal/portal.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { PortalHeaderComponent } from './components/portal-header/portal-header.component';
 import { PortalFooterComponent } from './components/portal-footer/portal-footer.component';
-
+import { PortalService } from './services/portal.service';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { PortalFooterComponent } from './components/portal-footer/portal-footer.
     PortalComponent,
     ProductViewComponent,
     PortalHeaderComponent,
-    PortalFooterComponent
+    PortalFooterComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,
@@ -62,7 +64,7 @@ import { PortalFooterComponent } from './components/portal-footer/portal-footer.
     ToastrModule.forRoot(),
     NgxPaginationModule
   ],
-  providers: [TableService],
+  providers: [TableService, PortalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

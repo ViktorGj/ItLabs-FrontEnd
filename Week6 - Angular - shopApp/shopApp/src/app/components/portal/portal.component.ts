@@ -18,7 +18,7 @@ export class PortalComponent implements OnInit {
 
   productsList: Iproduct[];
   categories: Icategory[];
-  @Input() searchWord: string;
+  searchWord: string;
   product: Iproduct;
   productsInCart: Iproduct[] = [];
   cartQuantity: number;
@@ -27,6 +27,7 @@ export class PortalComponent implements OnInit {
     this.getProducts();
     this.showCategories();
     this.cartQuantity = localStorage.length;
+    this.portalService.castProducts.subscribe(products => this.productsList = products);
   }
 
   getProducts() {
@@ -49,19 +50,6 @@ export class PortalComponent implements OnInit {
       .subscribe( data => {
         this.categories = data;
     })
-  }
-
-  searchProducts(){
-    this.productsService.searchProduct(this.searchWord)
-      .subscribe( (data:Iproduct[]) => {
-        this.productsList = data;
-      })
-  }
-
-  isEmpty(event){
-    if(event == ""){
-      this.getProducts();
-    }
   }
 
   addToCart(product){

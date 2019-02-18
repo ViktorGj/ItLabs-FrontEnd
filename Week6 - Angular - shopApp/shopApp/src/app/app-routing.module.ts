@@ -6,6 +6,7 @@ import { AddEditCategoryComponent } from './components/add-edit-category/add-edi
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { PortalComponent } from './components/portal/portal.component'
 import { ProductViewComponent } from './components/product-view/product-view.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'portal', 
     children: [
       { path: '', component: PortalComponent},
-      { path: 'view/:id', component: ProductViewComponent }
+      { path: 'view/:id', component: ProductViewComponent },
+      { path: 'cart', component: ShoppingCartComponent}
     ]
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Iproduct } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
@@ -15,17 +15,20 @@ export class ProductViewComponent implements OnInit {
               ) { }
 
   product = {} as Iproduct;
+  cartQuantity: number;
 
   ngOnInit() {
-    const id = +this.activeRoute.snapshot.params.id;
-    console.log(id);
+    this.viewProduct();
+    this.cartQuantity = localStorage.length;
+  }
 
+  viewProduct() {
+    const id = +this.activeRoute.snapshot.params.id;
     this.productsService.getProduct(id)
     .subscribe((res: Iproduct) => {
       this.product = res;
     });
   }
-
 
 
 }

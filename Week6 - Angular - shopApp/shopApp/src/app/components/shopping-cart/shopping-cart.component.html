@@ -1,0 +1,32 @@
+
+<app-portal-header [quantity]="cartQuantity"></app-portal-header>
+
+<div class="cartContainer">
+  <h1>Shopping cart</h1>
+  <div>
+      <table class="table table-hover">
+          <thead class="thead">
+            <tr>
+              <th>Picture</th>
+              <th>Product(s)</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productsList">
+              <td><img src="product.imageUrl"></td>
+              <td>{{product.name}}</td>
+              <td>{{product.price}}</td>
+              <td><input type="text"></td>
+              <td></td>
+              <td><button class="btn btn-danger">Remove</button></td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>
+
+<app-portal-footer></app-portal-footer>
