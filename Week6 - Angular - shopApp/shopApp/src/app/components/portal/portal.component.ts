@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Iproduct } from 'src/app/models/product';
 import { ProductsService } from '../../services/products.service'
 import { TableService } from 'src/app/services/table.service';
@@ -18,7 +18,7 @@ export class PortalComponent implements OnInit {
 
   productsList: Iproduct[];
   categories: Icategory[];
-  searchWord: string;
+  @Input() searchWord: string;
   product: Iproduct;
   productsInCart: Iproduct[] = [];
   cartQuantity: number;
