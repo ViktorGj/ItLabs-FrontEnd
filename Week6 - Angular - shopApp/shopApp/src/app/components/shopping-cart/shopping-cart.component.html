@@ -3,7 +3,8 @@
 
 <div class="cartContainer">
   <h1>Shopping cart</h1>
-  <div>
+  <!-- Table content -->
+  <div class="tableContainer">
       <table class="table table-hover">
           <thead class="thead">
             <tr>
@@ -17,16 +18,25 @@
           </thead>
           <tbody>
             <tr *ngFor="let product of productsList">
-              <td><img src="product.imageUrl"></td>
+              <td class="imageCell"><img [src]="product.imageUrl"></td>
               <td>{{product.name}}</td>
-              <td>{{product.price}}</td>
-              <td><input type="text"></td>
-              <td></td>
-              <td><button class="btn btn-danger">Remove</button></td>
+              <td> &#8364; {{product.price}}</td>
+              <td><input type="number" min="1" value="1" [(ngModel)]="quantity"></td>
+              <td>{{quantity * product.price}}</td>
+              <td class="removeButtonCell"><button class="btn btn-danger">Remove</button></td>
             </tr>
           </tbody>
         </table>
   </div>
-</div>
+  <!-- Total, checkout button -->
+    <div class="checkoutContainer">
+      <div>
+        <p>Total: &#8364; </p>
+        <button class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+    <!-- Cart container end -->
+  </div>
+
 
 <app-portal-footer></app-portal-footer>

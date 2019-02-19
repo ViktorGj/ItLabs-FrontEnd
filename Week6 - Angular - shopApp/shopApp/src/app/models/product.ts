@@ -8,5 +8,6 @@ export interface Iproduct {
     isAvailable: boolean,
     shortDescription: string,
     fullDescription: string,
-    categoryId: number
+    categoryId: number,
+    quantity: number
   }

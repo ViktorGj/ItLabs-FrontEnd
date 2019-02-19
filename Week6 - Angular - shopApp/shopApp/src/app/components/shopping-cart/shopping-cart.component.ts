@@ -14,6 +14,7 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
     this.cartQuantity = localStorage.length;
+    this.getFromCart();
   }
 
   getFromCart() {
