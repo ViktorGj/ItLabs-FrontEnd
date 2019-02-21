@@ -53,16 +53,18 @@ export class PortalComponent implements OnInit {
   }
 
   addToCart(product){
-    let products: Iproduct[] = [];
-    localStorage.setItem(product.id, JSON.stringify(product));
+    let products = [];
+    let quantity: number = 1;
+    let value = [product, quantity]
+    localStorage.setItem(product.id, JSON.stringify(value));
     this.cartQuantity = localStorage.length;
     let keys = Object.keys(localStorage);
     for (let i=0; i<keys.length; i++) {
-      let item: Iproduct = JSON.parse(localStorage.getItem(keys[i]));
+      let item = JSON.parse(localStorage.getItem(keys[i]));
       products.push(item);
     }
-    this.productsInCart = products;
-    console.log(this.productsInCart);
+    // this.productsInCart = products;
+    console.log(products);
   }
   
 }

@@ -18,12 +18,12 @@
           </thead>
           <tbody>
             <tr *ngFor="let product of productsList">
-              <td class="imageCell"><img [src]="product.imageUrl"></td>
-              <td>{{product.name}}</td>
-              <td> &#8364; {{product.price}}</td>
-              <td><input type="number" min="1" value="1" [(ngModel)]="quantity"></td>
-              <td>{{quantity * product.price}}</td>
-              <td class="removeButtonCell"><button class="btn btn-danger">Remove</button></td>
+              <td class="imageCell"><img [src]="product[0].imageUrl"></td>
+              <td>{{product[0].name}}</td>
+              <td> &#8364; {{product[0].price}}</td>
+              <td><input type="number" min="1" (input)="changeProductQuantity(product[0].id, $event.target.value)" [(ngModel)]="product[1]"></td>
+              <td>{{itemSum(product[0].price, product[1])}}</td>
+              <td class="removeButtonCell"><button class="btn btn-danger" (click)="removeFromCart(product[0].id)">Remove</button></td>
             </tr>
           </tbody>
         </table>
@@ -31,8 +31,8 @@
   <!-- Total, checkout button -->
     <div class="checkoutContainer">
       <div>
-        <p>Total: &#8364; </p>
-        <button class="btn btn-primary">Checkout</button>
+        <p>Total: &#8364; {{sum}}</p>
+        <button class="btn btn-primary" (click)="checkoutCart()">Checkout</button>
       </div>
     </div>
     <!-- Cart container end -->
