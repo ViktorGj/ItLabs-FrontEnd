@@ -34,13 +34,13 @@ export class AddEditCategoryComponent implements OnInit {
     })
   }
 
-  getCategoryNames(id){
-    this.tableService.getCategories()
-      .subscribe(categories => {
-        this.categoryNames = categories.filter(x => x.id != id).map(category => category.name);
-        console.log(this.categoryNames);
-      })
-  }
+getCategoryNames(id){
+  this.tableService.getCategories()
+    .subscribe(categories => {
+      this.categoryNames = categories.filter(x => x.id != id).map(category => category.name);
+      console.log(this.categoryNames);
+    })
+}
 
 // Setting add/edit form depending on the passed id
 setCategoryForm(id: number){

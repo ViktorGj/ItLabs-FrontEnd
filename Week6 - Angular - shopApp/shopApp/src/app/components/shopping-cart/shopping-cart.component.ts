@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Iproduct } from 'src/app/models/product';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,10 +11,14 @@ import { Iproduct } from 'src/app/models/product';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: BsModalService,
+              private toastrService: ToastrService,
+              private route: Router,) { }
+  modalRef: BsModalRef;
   productsList: [];
   cartQuantity: number;
   sum: number;
+  productId: number;
 
   ngOnInit() {
     this.cartQuantity = localStorage.length;
@@ -38,7 +45,7 @@ export class ShoppingCartComponent implements OnInit {
     localStorage.setItem(productId, JSON.stringify(value));
     this.totalSum(this.productsList);
   }
-
+  
   itemSum(quantity, price) {
     return quantity * price;
   }
@@ -48,20 +55,32 @@ export class ShoppingCartComponent implements OnInit {
     for (let i=0; i<products.length; i++){
         sum += products[i][0].price * products[i][1];
     } 
-    console.log(sum);
     this.sum = sum;
   }
 
-  removeFromCart(productId){
-    localStorage.removeItem(productId);
-    this.cartQuantity = localStorage.length;
-    this.getFromCart();
+  removeFromCart(template: TemplateRef<any>, id){
+    this.productId = id;
+    this.modalRef = this.modalService.show(template, {class: 'modal-md'});
   }
 
-  checkoutCart(){
+  confirmRemove(id): void {
+    id = this.productId;
+    localStorage.removeItem(id);
+    this.cartQuantity = localStorage.length;
+    this.getFromCart();
+    this.modalRef.hide();
+    this.toastrService.success("Product removed from cart");
+  }
+ 
+  declineRemove(): void {
+    this.modalRef.hide();
+  }
+
+  checkoutCart() {
     localStorage.clear();
     this.cartQuantity = localStorage.length;
     this.getFromCart();
+    this.route.navigate(['/portal']);
   }
 
 }

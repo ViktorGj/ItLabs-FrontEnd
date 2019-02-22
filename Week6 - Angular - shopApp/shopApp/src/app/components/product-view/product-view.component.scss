@@ -5,13 +5,23 @@
 .container {
     margin-top: 50px;
     margin-bottom: 100px;
-    height: 65%;
+    height: 66%;
     .row {
         height: auto;
         margin-top: 30px;
+        margin-bottom: 20px;
         .imageContainer {
             img {
                 width: 100% !important;
+            }
+        }
+        .detailsContainer {
+            div {
+                height: 35px;
+                input,
+                button {
+                    height: 100%;
+                }
             }
         }
     }    

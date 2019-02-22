@@ -23,7 +23,7 @@
               <td> &#8364; {{product[0].price}}</td>
               <td><input type="number" min="1" (input)="changeProductQuantity(product[0].id, $event.target.value)" [(ngModel)]="product[1]"></td>
               <td>{{itemSum(product[0].price, product[1])}}</td>
-              <td class="removeButtonCell"><button class="btn btn-danger" (click)="removeFromCart(product[0].id)">Remove</button></td>
+              <td class="removeButtonCell"><button class="btn btn-danger" (click)="removeFromCart(template, product[0].id)">Remove</button></td>
             </tr>
           </tbody>
         </table>
@@ -38,5 +38,13 @@
     <!-- Cart container end -->
   </div>
 
+  <!-- DELETE confirmation message template -->
+  <ng-template #template>
+    <div class="modal-body text-center p-3">
+      <p class="p-2">Are you sure you want to perform this action?</p>
+      <button type="button" class="btn btn-default p-2" (click)="confirmRemove()" >Yes</button>
+      <button type="button" class="btn btn-primary p-2" (click)="declineRemove()" >No</button>
+    </div>
+  </ng-template>
 
 <app-portal-footer></app-portal-footer>

@@ -7,14 +7,14 @@
       <div class="imageContainer col-md-3">
         <img [src]="product.imageUrl">
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9 detailsContainer">
         <h2>{{product.name}}</h2>
         <p>Short description: {{product.shortDescription}}</p>
         <p>Manufacturer: {{product.manufacturer}}</p>
         <p>Availability: {{product.isAvailable}}</p>
         <div>
-          <input type="number">
-          <button class="btn btn-primary">Add to cart</button>
+          <input type="number" min="1" placeholder="quantity" [(ngModel)]="productQuantity">
+          <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { ProductsService } from '../../services/products.service'
 import { TableService } from 'src/app/services/table.service';
 import { Icategory } from 'src/app/models/category';
 import { PortalService } from 'src/app/services/portal.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-portal',
@@ -14,13 +15,12 @@ export class PortalComponent implements OnInit {
 
   constructor(private productsService: ProductsService,
               private tableService: TableService,
-              private portalService: PortalService) { }
+              private portalService: PortalService,
+              private toastrService: ToastrService) { }
 
   productsList: Iproduct[];
   categories: Icategory[];
-  searchWord: string;
   product: Iproduct;
-  productsInCart: Iproduct[] = [];
   cartQuantity: number;
 
   ngOnInit() {
@@ -53,18 +53,29 @@ export class PortalComponent implements OnInit {
   }
 
   addToCart(product){
-    let products = [];
-    let quantity: number = 1;
-    let value = [product, quantity]
-    localStorage.setItem(product.id, JSON.stringify(value));
-    this.cartQuantity = localStorage.length;
-    let keys = Object.keys(localStorage);
-    for (let i=0; i<keys.length; i++) {
-      let item = JSON.parse(localStorage.getItem(keys[i]));
-      products.push(item);
+    if (product.isAvailable){
+      let isProductInCart = true;
+      let keys = Object.keys(localStorage);
+      for (let i=0; i<keys.length; i++) {
+        if (keys[i] == product.id){
+          isProductInCart = false;
+          break;
+        }
+      }
+      if (isProductInCart){
+        let quantity: number = 1;
+        let value = [product, quantity]
+        localStorage.setItem(product.id, JSON.stringify(value));
+        this.cartQuantity = localStorage.length;
+        this.toastrService.success("Product added to cart");
+      }
+      else {
+        this.toastrService.warning("Product already in cart !")
+      }
     }
-    // this.productsInCart = products;
-    console.log(products);
+    else {
+      this.toastrService.warning("Product not available !");
+    }
   }
   
 }
