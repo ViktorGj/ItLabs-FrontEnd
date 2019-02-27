@@ -1,6 +1,4 @@
 
-
-
 .imageCell {
     width: 100px;
     img {
@@ -10,6 +8,16 @@
 
 ng-container {
     border-top: none;
+}
+
+@media only screen and (max-width: 770px) {
+    main {
+        form {
+            h1 {
+                display: none;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 576px) {

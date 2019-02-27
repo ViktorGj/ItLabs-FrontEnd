@@ -25,11 +25,9 @@ export class ProductsComponent implements OnInit {
   modalRef: BsModalRef;
   searchTerm: string;
 
-  getCategories(){
-    this.tableService.getCategories()
-      .subscribe((data:Icategory[]) => {
-        this.categories = data;
-      })
+  ngOnInit() {
+    this.getData();
+    this.getCategories();
   }
 
    getData() {
@@ -38,8 +36,15 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  getCategories(){
+    this.tableService.getCategories()
+      .subscribe((data:Icategory[]) => {
+        this.categories = data;
+      })
+  }
+
   // Search product by name
-  checkIfEmpty(searchTerm: string) {
+  searchProduct(searchTerm: string) {
     searchTerm = this.searchTerm;
     this.productsService.searchProduct(searchTerm)
       .subscribe((res: Iproduct[]) => {
@@ -73,11 +78,6 @@ export class ProductsComponent implements OnInit {
  
   decline(): void {
     this.modalRef.hide();
-  }
-
-  ngOnInit() {
-    this.getData();
-    this.getCategories();
   }
 
 }

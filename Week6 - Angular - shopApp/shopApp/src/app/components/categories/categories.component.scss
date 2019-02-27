@@ -1,4 +1,14 @@
 
+@media only screen and (max-width: 770px) {
+    main {
+        form {
+            h1 {
+                display: none;
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 576px) {
     .search {
         display: block !important;

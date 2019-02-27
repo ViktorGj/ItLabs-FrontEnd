@@ -28,16 +28,17 @@ export class AddEditCategoryComponent implements OnInit {
   ngOnInit() {
     // Getting id from route parameters => /edit/id
     this.activatedRoute.paramMap.subscribe(parameterMap => {
-      const id = +parameterMap.get('id');   // + converts to number
-      this.getCategoryNames(id);
-      this.setCategoryForm(id);
+    const id = +parameterMap.get('id');   // + converts to number
+    this.getCategoryNames(id);
+    this.setCategoryForm(id);
     })
   }
 
 getCategoryNames(id){
   this.tableService.getCategories()
     .subscribe(categories => {
-      this.categoryNames = categories.filter(x => x.id != id).map(category => category.name);
+      this.categoryNames = categories.filter(x => x.id != id)
+        .map(category => category.name);
       console.log(this.categoryNames);
     })
 }

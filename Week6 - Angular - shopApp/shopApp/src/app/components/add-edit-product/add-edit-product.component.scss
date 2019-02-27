@@ -4,79 +4,82 @@
     padding: 0;
     margin: 0 0 0 0;
 }
-
-.addEditForm {
-    padding: 0 8%;
-    h1,
-    .imageSection,
-     .nameSection, 
-     .categoriesSection, 
-     .manufacturerSection, 
-     .description1, 
-     .description2,
-     .formBtns {
-        margin-top: 10px;
-    }
-
-    .imageSection {
-        width: 50%;
-        .productImage {
-            width: 100px;
-            height: 120px;
-            margin-bottom: 10px;
-            img {
-                width: 100%;
-                height: 100%;
+.row {
+    height: 92%;
+    .addEditForm {
+        padding: 0 8%;
+        h1,
+        .imageSection,
+         .nameSection, 
+         .categoriesSection, 
+         .manufacturerSection, 
+         .description1, 
+         .description2,
+         .formBtns {
+            margin-top: 10px;
+        }
+    
+        .imageSection {
+            width: 50%;
+            .productImage {
+                width: 100px;
+                height: 120px;
+                margin-bottom: 10px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+    
+            .imgButtons {
+                button {
+                    padding: 0 5px;
+                    margin-right: 10px;
+                }
             }
         }
-
-        .imgButtons {
-            button {
-                padding: 0 5px;
-                margin-right: 10px;
-            }
-        }
-    }
-    .nameSection {
-        width: 50%;
-    }
-    .categoriesSection {
-        width: 50%;
-        select {
-            width: 100%;
-        }
-    }
-    .manufacturerSection {
-        width: 50%;
-    }
-    .productPrice {
-        input {
+        .nameSection {
             width: 50%;
         }
-    }
-    .description1 {
-        width: 75%;
-        textarea {
-            width: 100%;
+        .categoriesSection {
+            width: 50%;
+            select {
+                width: 100%;
+            }
         }
-    }
-    .description2 {
-        width: 75%;
-        textarea {
-            width: 100%;
+        .manufacturerSection {
+            width: 50%;
         }
-    }
-    .formBtns {
-        width: 75%;
-        margin-bottom: 15px;
-        button {
-            float: right;
-            margin-left: 5px;
-            padding: 0 10px;
-            width: 80px;
+        .productPrice {
+            input {
+                width: 50%;
+            }
+        }
+        .description1 {
+            width: 75%;
+            textarea {
+                width: 100%;
+            }
+        }
+        .description2 {
+            width: 75%;
+            textarea {
+                width: 100%;
+            }
+        }
+        .formBtns {
+            width: 75%;
+            margin-bottom: 15px;
+            button {
+                float: right;
+                margin-left: 5px;
+                padding: 0 10px;
+                width: 80px;
+            }
         }
     }
 }
+
 
 @media only screen and (max-width: 770px) {
     .imageSection,

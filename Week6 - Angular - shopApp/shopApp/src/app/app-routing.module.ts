@@ -11,6 +11,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 const routes: Routes = [
   
   { path: '', redirectTo: '/categories', pathMatch: 'full'},
+  // { path: null, redirectTo: '/categories', pathMatch: 'full'},
   { path: 'categories',
     children: [
       { path: '', component: CategoriesComponent},
