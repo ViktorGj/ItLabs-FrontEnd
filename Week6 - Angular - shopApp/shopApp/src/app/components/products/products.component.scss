@@ -1,3 +1,14 @@
+.row {
+    .search {
+        padding-left: 6px;
+    }
+    .button {
+        button {
+            float: right;
+        }
+    }
+}
+
 
 .imageCell {
     width: 100px;
@@ -21,14 +32,26 @@ ng-container {
 }
 
 @media only screen and (max-width: 576px) {
-    .search {
-        display: block !important;
-        .searchInput {
-            display: inline-block;
-            width: 70%;
+    .row {
+        .search {
+            display: block !important;
+            margin-bottom: 5px;
+            .searchInput {
+                display: inline-block;
+                width: 85%;
+            }
+            img {
+                display: inline-block;
+            }
         }
-        img {
-            display: inline-block;
+
+        .button {
+            display: block;
+            padding-left: 8px;
+            button {
+                float: left;
+            }
         }
     }
+
 }

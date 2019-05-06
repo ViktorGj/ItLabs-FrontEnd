@@ -88,16 +88,17 @@ export class AddEditProductComponent implements OnInit {
     const id = Math.random().toString(36).substring(2); // unique identifier
     this.ref = this.afStorage.ref(id);
     this.task = this.ref.put(event.target.files[0]); // initiate upload task
-    this.uploadProgress = this.task.percentageChanges();
     this.task.snapshotChanges()
-      .pipe(finalize(() => {
+      .pipe(
+        finalize(() => {
           this.ref.getDownloadURL()
             .subscribe(url => {
-          this.product.imageUrl = url;  // get and insert imageUrl in product
+              this.product.imageUrl = url;  // get and insert imageUrl in product
         });
       })
     ).subscribe();
   }
+
 // Remove image
   removeImage(){
     this.product.imageUrl = "";
